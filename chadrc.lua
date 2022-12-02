@@ -5,7 +5,7 @@ M.plugins = require "custom.plugins"
 
 M.ui = {
   theme = "catppuccin",
-  transparency = false,
+  transparency = true,
 }
 
 M.options = require "custom.opts"

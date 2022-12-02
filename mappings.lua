@@ -78,4 +78,52 @@ M.dap = {
   },
 }
 
+M.ufo = {
+  n = {
+    ["<leader>fao"] = {
+      function()
+        require("ufo").openAllFolds()
+      end,
+      "Open all folds",
+    },
+    ["<leader>fac"] = {
+      function()
+        require("ufo").closeAllFolds()
+      end,
+      "Close all folds",
+    },
+  },
+}
+
+M.luasnip = {
+  i = {
+    ["<c-j>"] = {
+      function()
+        require("luasnip").jump(1)
+      end,
+      "Hop to next parameter (luasnip)",
+    },
+    ["<c-k>"] = {
+      function()
+        require("luasnip").jump(-1)
+      end,
+      "Hop to previous parameter (luasnip)",
+    },
+  },
+  s = {
+    ["<c-j>"] = {
+      function()
+        require("luasnip").jump(1)
+      end,
+      "Hop to next parameter (luasnip)",
+    },
+    ["<c-k>"] = {
+      function()
+        require("luasnip").jump(-1)
+      end,
+      "Hop to previous parameter (luasnip)",
+    },
+  },
+}
+
 return M

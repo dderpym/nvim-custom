@@ -11,11 +11,10 @@ local sources = {
   builtin.diagnostics.actionlint,
   builtin.diagnostics.commitlint,
 
-  -- webdev stuff
-  builtin.formatting.deno_fmt,
-  builtin.formatting.prettier.with { filetypes = { "html", "markdown", "css" } },
   -- builtin.diagnostics.eslint_d,
   builtin.code_actions.eslint_d,
+
+  builtin.formatting.prettierd,
 
   --text
   builtin.diagnostics.codespell,
@@ -29,8 +28,7 @@ local sources = {
   builtin.diagnostics.shellcheck.with { diagnostics_format = "#{m} [#{c}]" },
 
   -- cpp
-  builtin.formatting.clang_format,
-  builtin.diagnostics.cppcheck,
+  builtin.formatting.clang_format.with { extra_args = { "--style='Chromium'" } },
 
   -- rust
   builtin.formatting.rustfmt,
@@ -41,10 +39,6 @@ local sources = {
 
   -- java
   builtin.diagnostics.checkstyle,
-
-  --python
-  builtin.formatting.fprettify,
-  builtin.diagnostics.pylint,
 }
 
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})

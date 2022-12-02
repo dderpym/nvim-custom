@@ -6,7 +6,17 @@ local capabilities = defaults.capabilities
 ---@diagnostic disable-next-line: different-requires
 local lspconfig = require "lspconfig"
 
-local servers = { "bashls", "clangd", "cssls", "gopls", "pyright", "rust_analyzer", "html", "tailwindcss", "tsserver" }
+local servers = {
+  "bashls", --[[ "clangd", ]]
+  "ccls",
+  "cssls",
+  "gopls",
+  "pyright",
+  "rust_analyzer",
+  "hls",
+  "html",
+  "tsserver",
+}
 
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
@@ -14,3 +24,11 @@ for _, lsp in ipairs(servers) do
     capabilities = capabilities,
   }
 end
+
+lspconfig["tailwindcss"].setup {
+  on_attach = function(client, bufnr)
+    on_attach(client, bufnr)
+    require("tailwindcss-colors").buf_attach(bufnr)
+  end,
+  capabilities = capabilities,
+}
