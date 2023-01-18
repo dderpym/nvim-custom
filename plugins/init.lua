@@ -1,6 +1,6 @@
 return {
-  override = {
-    ["hrsh7th/nvim-cmp"] = {
+  ["hrsh7th/nvim-cmp"] = {
+    override_options = {
       sources = {
         { name = "luasnip" },
         { name = "nvim_lsp" },
@@ -8,6 +8,23 @@ return {
         { name = "nvim_lua" },
         { name = "path" },
         { name = "cmp_tabnine" },
+      },
+    },
+  },
+  ["kyazdani42/nvim-tree.lua"] = {
+    override_options = {
+      git = {
+        enable = true,
+      },
+      view = {
+        adaptive_size = true,
+      },
+      renderer = {
+        highlight_git = true,
+        highlight_modified = "name",
+        indent_markers = {
+          enable = true,
+        },
       },
     },
   },
@@ -49,6 +66,11 @@ return {
     config = function()
       require "plugins.configs.lspconfig"
       require "custom.plugins.lspconfig"
+    end,
+  },
+  ["windwp/nvim-ts-autotag"] = {
+    config = function()
+      require "custom.plugins.autotag"
     end,
   },
 

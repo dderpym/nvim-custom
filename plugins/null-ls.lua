@@ -18,7 +18,6 @@ local sources = {
 
   --text
   builtin.diagnostics.codespell,
-  builtin.diagnostics.alex,
 
   --lua
   builtin.formatting.stylua,

@@ -1,5 +1,4 @@
-local present, cmp = pcall(require, "cmp")
-
+local present
 if not present then
   return
 end
