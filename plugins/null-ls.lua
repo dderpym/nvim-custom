@@ -8,7 +8,6 @@ local builtin = null_ls.builtins
 local sources = {
   --source control
   builtin.code_actions.gitsigns,
-  builtin.diagnostics.actionlint,
   builtin.diagnostics.commitlint,
 
   -- builtin.diagnostics.eslint_d,
@@ -34,10 +33,6 @@ local sources = {
 
   -- go
   builtin.formatting.gofmt,
-  builtin.diagnostics.golangci_lint,
-
-  -- java
-  builtin.diagnostics.checkstyle,
 }
 
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})

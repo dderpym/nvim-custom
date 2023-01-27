@@ -7,7 +7,7 @@ local capabilities = defaults.capabilities
 local lspconfig = require "lspconfig"
 
 local servers = {
-  "bashls", --[[ "clangd", ]]
+  "bashls",
   "ccls",
   "cssls",
   "gopls",
