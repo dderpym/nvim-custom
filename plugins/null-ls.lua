@@ -23,7 +23,6 @@ local sources = {
 
   -- Shell
   builtin.formatting.shfmt,
-  builtin.diagnostics.shellcheck.with { diagnostics_format = "#{m} [#{c}]" },
 
   -- cpp
   builtin.formatting.clang_format.with { extra_args = { "--style='Chromium'" } },
@@ -44,7 +43,7 @@ local on_attach = function(client, bufnr)
       group = augroup,
       buffer = bufnr,
       callback = function()
-        vim.lsp.buf.format { bufnr = bufnr }
+        vim.lsp.buf.format { bufnr = bufnr, async = true }
       end,
     })
   end

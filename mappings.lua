@@ -17,6 +17,17 @@ M.lsp = {
   },
 }
 
+M.neogen = {
+  n = {
+    ["<leader>cg"] = {
+      function()
+        require("neogen").generate()
+      end,
+      "generate comments",
+    },
+  },
+}
+
 M.telescope = {
   n = {
     ["<leader><leader>"] = { "<cmd> Telescope<CR>", "Open telescope" },

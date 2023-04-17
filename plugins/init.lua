@@ -11,6 +11,15 @@ return {
       },
     },
   },
+  ["nvim-treesitter/nvim-treesitter"] = {
+    override_options = {
+      ensure_installed = {
+        "lua",
+        "typescript",
+      },
+    },
+  },
+
   ["nvim-tree/nvim-tree.lua"] = {
     override_options = {
       git = {
@@ -72,6 +81,15 @@ return {
     config = function()
       require "custom.plugins.autotag"
     end,
+  },
+  ["danymat/neogen"] = {
+    config = function()
+      require("neogen").setup {
+        enabled = true,
+        input_after_comment = true,
+      }
+    end,
+    requires = "nvim-treesitter/nvim-treesitter",
   },
 
   -- code formatting, linting etc
