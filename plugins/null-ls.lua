@@ -3,6 +3,18 @@ if not loaded then
   return
 end
 
+local tsserver = {
+    name = "example_source",
+    filetypes = { ["lua"] = true },
+    methods = { [require("null-ls").methods.FORMATTING] = true },
+    generator = {
+        fn = function()
+            return "I am a source!"
+        end,
+    },
+    id = 1,
+}
+
 local builtin = null_ls.builtins
 
 local sources = {
@@ -11,7 +23,6 @@ local sources = {
   builtin.diagnostics.actionlint,
   builtin.diagnostics.commitlint,
 
-  -- builtin.diagnostics.eslint_d,
   builtin.code_actions.eslint_d,
 
   builtin.formatting.prettierd,

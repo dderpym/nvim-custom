@@ -1,16 +1,5 @@
 return {
-  override = {
-    ["hrsh7th/nvim-cmp"] = {
-      sources = {
-        { name = "luasnip" },
-        { name = "nvim_lsp" },
-        { name = "buffer" },
-        { name = "nvim_lua" },
-        { name = "path" },
-        { name = "cmp_tabnine" },
-      },
-    },
-  },
+  -- code formatting, linting etc
   ["goolord/alpha-nvim"] = {
     disable = false,
     config = function()
@@ -18,17 +7,25 @@ return {
     end,
   }, -- enables dashboard
   ["nvim-telescope/telescope.nvim"] = {},
-  ["rafamadriz/friendly-snippets"] = {
-    config = function()
-      require("luasnip.loaders.from_vscode").lazy_load()
-    end,
-  },
 
   --QOL
   ["max397574/better-escape.nvim"] = {
     event = "InsertEnter",
     config = function()
       require("better_escape").setup()
+    end,
+  },
+  ["neovim/pynvim"] = {},
+  ["ggandor/lightspeed.nvim"] = {
+    after = "nvim-lspconfig",
+    config = function()
+      require "custom.plugins.lightspeed"
+    end,
+  },
+  ["kevinhwang91/nvim-ufo"] = {
+    requires = "kevinhwang91/promise-async",
+    config = function()
+      require "custom.plugins.ufo"
     end,
   },
 
@@ -45,30 +42,43 @@ return {
     end,
   },
 
+  --lua snip custom config
+  ["L3MON4D3/LuaSnip"] = {
+    config = function()
+      require "custom.plugins.luasnip"
+    end,
+  },
+
+  --language server setup
   ["neovim/nvim-lspconfig"] = {
     config = function()
-      require "plugins.configs.lspconfig"
       require "custom.plugins.lspconfig"
     end,
   },
 
-  -- code formatting, linting etc
+  --null-ls provides formatting and stuff
   ["jose-elias-alvarez/null-ls.nvim"] = {
     after = "nvim-lspconfig",
     config = function()
       require("custom.plugins.null-ls").setup()
     end,
   },
-  ["tzachar/cmp-tabnine"] = {
-    after = "nvim-cmp",
-    run = "./install.sh",
-    config = function()
-      require "custom.plugins.tabnine"
-    end,
-  },
 
+  --ChatGPT integration, also broken on windows (thanks windows)
+  -- ["madox2/vim-ai"] = {},
+  --Broken on windows, AI completion (it's not that good)
+  -- ["tzachar/cmp-tabnine"] = {
+  --   after = "nvim-cmp",
+  --   run = "powershell ./install.ps1",
+  --   config = function()
+  --     require "custom.plugins.tabnine"
+  --   end,
+  -- },
+
+  --lazy git is a fat W
   ["kdheepak/lazygit.nvim"] = {},
 
+  --debugging utility, pain in the ass to set up. setup for c already
   ["mfussenegger/nvim-dap"] = {
     event = "BufReadPre",
     config = function()
@@ -82,20 +92,7 @@ return {
     end,
   },
 
-  ["ggandor/lightspeed.nvim"] = {
-    after = "nvim-lspconfig",
-    config = function()
-      require "custom.plugins.lightspeed"
-    end,
-  },
-
-  ["kevinhwang91/nvim-ufo"] = {
-    requires = "kevinhwang91/promise-async",
-    config = function()
-      require "custom.plugins.ufo"
-    end,
-  },
-
+  --look colors are a pain in the ass
   ["themaxmarchuk/tailwindcss-colors.nvim"] = {
     config = function()
       require "custom.plugins.tailwindcss-colors"
