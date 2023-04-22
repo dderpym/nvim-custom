@@ -1,5 +1,43 @@
 return {
   -- code formatting, linting etc
+  ["hrsh7th/nvim-cmp"] = {
+    override_options = {
+      sources = {
+        { name = "luasnip" },
+        { name = "nvim_lsp" },
+        { name = "buffer" },
+        { name = "nvim_lua" },
+        { name = "path" },
+        { name = "cmp_tabnine" },
+      },
+    },
+  },
+  ["nvim-treesitter/nvim-treesitter"] = {
+    override_options = {
+      ensure_installed = {
+        "lua",
+        "typescript",
+      },
+    },
+  },
+
+  ["nvim-tree/nvim-tree.lua"] = {
+    override_options = {
+      git = {
+        enable = true,
+      },
+      view = {
+        adaptive_size = true,
+      },
+      renderer = {
+        highlight_git = true,
+        highlight_modified = "name",
+        indent_markers = {
+          enable = true,
+        },
+      },
+    },
+  },
   ["goolord/alpha-nvim"] = {
     disable = false,
     config = function()
@@ -54,6 +92,20 @@ return {
     config = function()
       require "custom.plugins.lspconfig"
     end,
+  },
+  ["windwp/nvim-ts-autotag"] = {
+    config = function()
+      require "custom.plugins.autotag"
+    end,
+  },
+  ["danymat/neogen"] = {
+    config = function()
+      require("neogen").setup {
+        enabled = true,
+        input_after_comment = true,
+      }
+    end,
+    requires = "nvim-treesitter/nvim-treesitter",
   },
 
   --null-ls provides formatting and stuff

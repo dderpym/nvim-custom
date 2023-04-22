@@ -17,6 +17,17 @@ M.lsp = {
   },
 }
 
+M.neogen = {
+  n = {
+    ["<leader>cg"] = {
+      function()
+        require("neogen").generate()
+      end,
+      "generate comments",
+    },
+  },
+}
+
 M.telescope = {
   n = {
     ["<leader><leader>"] = { "<cmd> Telescope<CR>", "Open telescope" },
@@ -78,32 +89,15 @@ M.dap = {
   },
 }
 
-M.ufo = {
-  n = {
-    ["<leader>fao"] = {
-      function()
-        require("ufo").openAllFolds()
-      end,
-      "Open all folds",
-    },
-    ["<leader>fac"] = {
-      function()
-        require("ufo").closeAllFolds()
-      end,
-      "Close all folds",
-    },
-  },
-}
-
 M.luasnip = {
   i = {
-    ["<c-j>"] = {
+    ["<C-j>"] = {
       function()
         require("luasnip").jump(1)
       end,
       "Hop to next parameter (luasnip)",
     },
-    ["<c-k>"] = {
+    ["<C-k>"] = {
       function()
         require("luasnip").jump(-1)
       end,
@@ -111,13 +105,13 @@ M.luasnip = {
     },
   },
   s = {
-    ["<c-j>"] = {
+    ["<C-j>"] = {
       function()
         require("luasnip").jump(1)
       end,
       "Hop to next parameter (luasnip)",
     },
-    ["<c-k>"] = {
+    ["<C-k>"] = {
       function()
         require("luasnip").jump(-1)
       end,
