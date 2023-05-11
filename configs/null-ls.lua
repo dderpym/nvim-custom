@@ -1,19 +1,4 @@
-local loaded, null_ls = pcall(require, "null-ls")
-if not loaded then
-  return
-end
-
-local tsserver = {
-    name = "example_source",
-    filetypes = { ["lua"] = true },
-    methods = { [require("null-ls").methods.FORMATTING] = true },
-    generator = {
-        fn = function()
-            return "I am a source!"
-        end,
-    },
-    id = 1,
-}
+local null_ls = require "null-ls"
 
 local builtin = null_ls.builtins
 
@@ -60,13 +45,7 @@ local on_attach = function(client, bufnr)
   end
 end
 
-local M = {}
-
-M.setup = function()
-  null_ls.setup {
-    sources = sources,
-    on_attach = on_attach,
-  }
-end
-
-return M
+null_ls.setup {
+  sources = sources,
+  on_attach = on_attach,
+}
