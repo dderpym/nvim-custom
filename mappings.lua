@@ -6,24 +6,23 @@ M.disabled = {
   },
 }
 
-M.lsp = {
+M.cmp = {
   n = {
-    ["<leader>rr"] = {
+    ["<C-Space>"] = {
       function()
-        require("nvchad_ui.renamer").open()
+        require("cmp").mapping.complete()
       end,
-      "lsp rename",
     },
   },
 }
 
-M.neogen = {
+M.lsp = {
   n = {
-    ["<leader>cg"] = {
+    ["<leader>r"] = {
       function()
-        require("neogen").generate()
+        require("nvchad_ui.renamer").open()
       end,
-      "generate comments",
+      "lsp rename",
     },
   },
 }

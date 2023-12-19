@@ -4,12 +4,12 @@ return {
     "hrsh7th/nvim-cmp",
     opts = {
       sources = {
-        { name = "luasnip" },
-        { name = "nvim_lsp" },
-        { name = "buffer" },
-        { name = "nvim_lua" },
-        { name = "path" },
-        { name = "cmp_tabnine" },
+        { name = "codeium" },
+         { name = "nvim_lsp" },
+         { name = "luasnip" },
+         { name = "buffer" },
+         { name = "nvim_lua" },
+         { name = "path" },
       },
     },
   },
@@ -137,13 +137,17 @@ return {
     end,
   },
 
-  -- {"neovim/pynvim",},
-  -- --ChatGPT integration, also broken on windows (thanks windows)
-  -- {"madox2/vim-ai",
-  --   config = function()
-  --     require "custom.configs.vimai"
-  --   end,
-  -- },
+  { --we need to hop on the AI bandwagon
+    "Exafunction/codeium.nvim",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "hrsh7th/nvim-cmp",
+    },
+    event = "BufEnter",
+    config = function()
+      require "custom.configs.codeium"
+    end,
+  },
 
   --lazy git is a fat W
   { "kdheepak/lazygit.nvim", cmd = "LazyGit" },
