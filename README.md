@@ -8,12 +8,12 @@ I don't actually expect that anyone actually uses this config other than myself,
 
 # Features
 The new LazyVim config comes with all the nice things of LazyVim (automatic lsp support, treesitter, etc)
--animations (i kinda like it low key)\
--clangd as an lsp
--ability to run code through the editor via CRAG666/code_runner
--catppuccin color scheme
--competitest for running test cases (mostly aimed at competitive programming)
--leetcode integration to get those interviews
--images integration configured for ImageMagick and kitty terminal
--PlatformIO integration for embedded programming
--floating terminal (i mean it's like one line it's basically built into LazyVim but it's still mine)
+- animations (i kinda like it low key)\
+- clangd as an lsp
+- ability to run code through the editor via CRAG666/code_runner
+- catppuccin color scheme
+- competitest for running test cases (mostly aimed at competitive programming)
+- leetcode integration to get those interviews
+- images integration configured for ImageMagick and kitty terminal
+- PlatformIO integration for embedded programming
+- floating terminal (i mean it's like one line it's basically built into LazyVim but it's still mine)
